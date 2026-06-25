@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+/* Adriano Farbpalette – angelehnt an die Original-Website */
+:root {
+  --vanille: #f0c040;
+  --honig: #d9a82a;
+  --creme: #f3e8d4;
+  --beige: #faf3e6;
+  --off-white: #fffaf2;
+  --rotbraun: #7a2e2e;
+  --weinrot: #8b3333;
+  --espresso: #2a1810;
+  --espresso-light: #3d2418;
+  --italien-gruen: #2d5a3d;
+  --tomatenrot: #a63d32;
+  --text-dark: #2a1a14;
+  --text-muted: #5c4038;
+  --header-bg: rgba(250, 243, 230, 0.96);
+}
+
+@theme inline {
+  --color-vanille: var(--vanille);
+  --color-honig: var(--honig);
+  --color-creme: var(--creme);
+  --color-beige: var(--beige);
+  --color-off-white: var(--off-white);
+  --color-rotbraun: var(--rotbraun);
+  --color-weinrot: var(--weinrot);
+  --color-espresso: var(--espresso);
+  --color-espresso-light: var(--espresso-light);
+  --color-italien-gruen: var(--italien-gruen);
+  --color-tomatenrot: var(--tomatenrot);
+  --color-text-dark: var(--text-dark);
+  --color-text-muted: var(--text-muted);
+  --font-display: var(--font-playfair);
+  --font-sans: var(--font-nunito);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--off-white);
+  color: var(--text-dark);
+  font-family: var(--font-nunito), system-ui, sans-serif;
+}
+
+:focus-visible {
+  outline: 2px solid var(--vanille);
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--creme);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--rotbraun);
+  border-radius: 4px;
+}
