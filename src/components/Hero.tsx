@@ -40,7 +40,7 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 py-28 text-center md:px-6 md:py-36 lg:py-40">
-        <div className="mb-6 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-2 rounded-full border border-vanille/35 bg-espresso/40 px-4 py-2 backdrop-blur-sm">
+        <div className="hero-animate mb-6 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-2 rounded-full border border-vanille/35 bg-espresso/40 px-4 py-2 backdrop-blur-sm">
           <span className="inline-flex items-center gap-2 text-sm font-medium text-vanille">
             <span
               className={`h-2 w-2 rounded-full ${
@@ -62,17 +62,17 @@ export function Hero() {
           )}
         </div>
 
-        <h1 className="font-display text-balance text-[clamp(2.25rem,4.5vw+1rem,4.5rem)] font-bold leading-[1.08] tracking-tight text-off-white">
+        <h1 className="hero-animate hero-animate-delay-1 font-display text-balance text-[clamp(2.25rem,4.5vw+1rem,4.5rem)] font-bold leading-[1.08] tracking-tight text-off-white">
           Eis, Pizza &amp; Cappuccino —{" "}
           <span className="text-vanille">mitten in Adendorf</span>
         </h1>
 
-        <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-off-white/90 md:text-xl">
+        <p className="hero-animate hero-animate-delay-2 mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-off-white/90 md:text-xl">
           Hausgemachtes Eis, knusprige Pizza und guter Kaffee im Kirchweg 19A.
           Vor Ort genießen oder zum Mitnehmen.
         </p>
 
-        <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4">
+        <div className="hero-animate hero-animate-delay-3 mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4">
           <Button
             href={MENU_PDFS.speisekarte}
             variant="primary"

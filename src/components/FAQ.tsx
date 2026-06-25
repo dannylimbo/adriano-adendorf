@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { FAQ_ITEMS } from "@/lib/constants";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -13,20 +14,22 @@ export function FAQ() {
       aria-labelledby="faq-heading"
     >
       <div className="mx-auto max-w-3xl px-4 md:px-6">
-        <SectionHeading
-          eyebrow="FAQ"
-          title="Häufige Fragen"
-          description="Alles Wichtige auf einen Blick – von Standort bis Speisekarte."
-        />
+        <ScrollReveal>
+          <SectionHeading
+            eyebrow="FAQ"
+            title="Häufige Fragen"
+            description="Alles Wichtige auf einen Blick – von Standort bis Speisekarte."
+          />
+        </ScrollReveal>
 
         <div className="space-y-3">
           {FAQ_ITEMS.map((item, index) => {
             const isOpen = openIndex === index;
             return (
-              <div
-                key={index}
-                className="overflow-hidden rounded-2xl border border-rotbraun/10 bg-beige transition-shadow hover:shadow-md"
-              >
+              <ScrollReveal key={index} delay={index * 60}>
+                <div
+                  className="overflow-hidden rounded-2xl border border-rotbraun/10 bg-beige transition-shadow hover:shadow-md"
+                >
                 <button
                   type="button"
                   id={`faq-question-${index}`}
@@ -62,6 +65,7 @@ export function FAQ() {
                   </div>
                 </div>
               </div>
+              </ScrollReveal>
             );
           })}
         </div>

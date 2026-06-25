@@ -2,6 +2,7 @@
 
 import { OPENING_HOURS, DAY_INDEX_TO_NAME } from "@/lib/constants";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export function OpeningHours() {
   const today = DAY_INDEX_TO_NAME[new Date().getDay()];
@@ -13,13 +14,16 @@ export function OpeningHours() {
       aria-labelledby="hours-heading"
     >
       <div className="mx-auto max-w-7xl px-4 md:px-6">
-        <SectionHeading
-          eyebrow="Öffnungszeiten"
-          title="Wann wir für dich da sind"
-          description="Komm vorbei und genieße Eis, Pizza oder einen guten Kaffee."
-        />
+        <ScrollReveal>
+          <SectionHeading
+            eyebrow="Öffnungszeiten"
+            title="Wann wir für dich da sind"
+            description="Komm vorbei und genieße Eis, Pizza oder einen guten Kaffee."
+          />
+        </ScrollReveal>
 
-        <div className="mx-auto max-w-lg">
+        <ScrollReveal delay={120}>
+          <div className="mx-auto max-w-lg">
           <div className="overflow-hidden rounded-3xl border border-rotbraun/15 bg-off-white shadow-md shadow-rotbraun/5">
             <div className="bg-rotbraun px-6 py-4">
               <h3 className="text-center font-display text-xl font-bold text-off-white">
@@ -68,7 +72,8 @@ export function OpeningHours() {
           <p className="mt-4 text-center text-xs text-text-muted">
             * Öffnungszeiten vor Veröffentlichung bitte prüfen und ggf. anpassen.
           </p>
-        </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import { BUSINESS, MENU_PDFS } from "@/lib/constants";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Button } from "@/components/ui/Button";
 
 export function MapSection() {
@@ -10,15 +11,17 @@ export function MapSection() {
       aria-labelledby="location-heading"
     >
       <div className="mx-auto max-w-7xl px-4 md:px-6">
-        <SectionHeading
-          eyebrow="Standort"
-          title="So findest du uns"
-          description="Mitten in Adendorf – einfach vorbeikommen oder Route planen."
-        />
+        <ScrollReveal>
+          <SectionHeading
+            eyebrow="Standort"
+            title="So findest du uns"
+            description="Mitten in Adendorf – einfach vorbeikommen oder Route planen."
+          />
+        </ScrollReveal>
 
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
-          {/* Kontaktkarte */}
-          <div className="flex flex-col justify-center rounded-3xl border border-rotbraun/15 bg-off-white p-8 shadow-md shadow-rotbraun/5 md:p-10">
+          <ScrollReveal delay={100}>
+            <div className="flex flex-col justify-center rounded-3xl border border-rotbraun/15 bg-off-white p-8 shadow-md shadow-rotbraun/5 md:p-10">
             <h3 className="font-display text-2xl font-bold text-espresso">
               {BUSINESS.fullName}
             </h3>
@@ -65,10 +68,11 @@ export function MapSection() {
                 Speisekarte ansehen
               </Button>
             </div>
-          </div>
+            </div>
+          </ScrollReveal>
 
-          {/* Google Maps Embed */}
-          <div className="overflow-hidden rounded-3xl border border-rotbraun/15 shadow-md shadow-rotbraun/5">
+          <ScrollReveal delay={200}>
+            <div className="overflow-hidden rounded-3xl border border-rotbraun/15 shadow-md shadow-rotbraun/5">
             <iframe
               title={`${BUSINESS.fullName} auf Google Maps`}
               src={BUSINESS.mapsEmbed}
@@ -78,6 +82,7 @@ export function MapSection() {
               allowFullScreen
             />
           </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

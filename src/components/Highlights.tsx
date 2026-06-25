@@ -1,6 +1,7 @@
 import { IMAGES } from "@/lib/images";
 import { SiteImage } from "@/components/ui/SiteImage";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const highlightItems = [
   {
@@ -33,19 +34,21 @@ export function Highlights() {
   return (
     <section className="bg-espresso py-20 md:py-28" aria-labelledby="highlights-heading">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
-        <SectionHeading
-          eyebrow="Unser Angebot"
-          title="Was dich bei Adriano erwartet"
-          description="Von Eisbecher bis Pizza — unsere Klassiker auf einen Blick."
-          light
-        />
+        <ScrollReveal>
+          <SectionHeading
+            eyebrow="Unser Angebot"
+            title="Was dich bei Adriano erwartet"
+            description="Von Eisbecher bis Pizza — unsere Klassiker auf einen Blick."
+            light
+          />
+        </ScrollReveal>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {highlightItems.map((item) => (
-            <article
-              key={item.title}
-              className="group overflow-hidden rounded-2xl border border-vanille/20 bg-espresso-light/60 shadow-md shadow-black/15 transition-[border-color,box-shadow] duration-300 hover:border-vanille/40 hover:shadow-lg hover:shadow-black/25"
-            >
+          {highlightItems.map((item, index) => (
+            <ScrollReveal key={item.title} delay={index * 100}>
+              <article
+                className="group overflow-hidden rounded-2xl border border-vanille/20 bg-espresso-light/60 shadow-md shadow-black/15 transition-[border-color,box-shadow] duration-300 hover:border-vanille/40 hover:shadow-lg hover:shadow-black/25"
+              >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <SiteImage
                   src={item.src}
@@ -65,6 +68,7 @@ export function Highlights() {
                 </p>
               </div>
             </article>
+            </ScrollReveal>
           ))}
         </div>
       </div>

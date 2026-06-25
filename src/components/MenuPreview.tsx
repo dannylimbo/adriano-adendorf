@@ -1,6 +1,7 @@
 import { IMAGES } from "@/lib/images";
 import { MENU_PDFS } from "@/lib/constants";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Button } from "@/components/ui/Button";
 import { SiteImage } from "@/components/ui/SiteImage";
 
@@ -33,19 +34,21 @@ export function MenuPreview() {
       aria-labelledby="menu-heading"
     >
       <div className="mx-auto max-w-7xl px-4 md:px-6">
-        <SectionHeading
-          eyebrow="Speisekarten"
-          title="Unsere Karten"
-          description="Eis- und Speisekarte als PDF — einfach anklicken und durchstöbern."
-        />
+        <ScrollReveal>
+          <SectionHeading
+            eyebrow="Speisekarten"
+            title="Unsere Karten"
+            description="Eis- und Speisekarte als PDF — einfach anklicken und durchstöbern."
+          />
+        </ScrollReveal>
 
         <div className="grid gap-8 md:grid-cols-2">
-          {menus.map((menu) => (
-            <article
-              key={menu.id}
-              id={menu.id}
-              className={`group overflow-hidden rounded-3xl border-2 ${menu.accent} bg-beige shadow-md shadow-rotbraun/5 transition-[border-color,box-shadow] duration-300 hover:border-vanille/50 hover:shadow-lg hover:shadow-rotbraun/10`}
-            >
+          {menus.map((menu, index) => (
+            <ScrollReveal key={menu.id} delay={index * 120}>
+              <article
+                id={menu.id}
+                className={`group overflow-hidden rounded-3xl border-2 ${menu.accent} bg-beige shadow-md shadow-rotbraun/5 transition-[border-color,box-shadow] duration-300 hover:border-vanille/50 hover:shadow-lg hover:shadow-rotbraun/10`}
+              >
               <div className="relative aspect-[16/10] overflow-hidden">
                 <SiteImage
                   src={menu.src}
@@ -75,12 +78,15 @@ export function MenuPreview() {
                 </div>
               </div>
             </article>
+            </ScrollReveal>
           ))}
         </div>
 
-        <p className="mt-8 text-center text-sm text-text-muted">
-          – zum Öffnen bitte klicken –
-        </p>
+        <ScrollReveal delay={200}>
+          <p className="mt-8 text-center text-sm text-text-muted">
+            – zum Öffnen bitte klicken –
+          </p>
+        </ScrollReveal>
       </div>
     </section>
   );

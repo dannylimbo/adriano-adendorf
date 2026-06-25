@@ -1,5 +1,6 @@
 import { IMAGES } from "@/lib/images";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { SiteImage } from "@/components/ui/SiteImage";
 
 /**
@@ -13,18 +14,20 @@ export function Gallery() {
       aria-labelledby="gallery-heading"
     >
       <div className="mx-auto max-w-7xl px-4 md:px-6">
-        <SectionHeading
-          eyebrow="Atmosphäre"
-          title="Ein Blick ins Adriano"
-          description="Warmes Licht, appetitliche Speisen und italienisches Flair – so fühlt es sich bei uns an."
-        />
+        <ScrollReveal>
+          <SectionHeading
+            eyebrow="Atmosphäre"
+            title="Ein Blick ins Adriano"
+            description="Warmes Licht, appetitliche Speisen und italienisches Flair – so fühlt es sich bei uns an."
+          />
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
-          {IMAGES.gallery.map((img) => (
-            <figure
-              key={img.src}
-              className={`group relative overflow-hidden rounded-2xl border border-rotbraun/10 bg-beige shadow-sm ${img.aspect}`}
-            >
+          {IMAGES.gallery.map((img, index) => (
+            <ScrollReveal key={img.src} delay={(index % 3) * 100}>
+              <figure
+                className={`group relative overflow-hidden rounded-2xl border border-rotbraun/10 bg-beige shadow-sm ${img.aspect}`}
+              >
               <SiteImage
                 src={img.src}
                 alt={img.alt}
@@ -34,6 +37,7 @@ export function Gallery() {
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-espresso/25 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </figure>
+            </ScrollReveal>
           ))}
         </div>
       </div>
